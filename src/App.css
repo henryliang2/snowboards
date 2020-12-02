@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap');
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+  margin: 20px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid black;
+}
+
+.card__image > img {
+  max-height: 320px;
+  object-fit: contain;
+}
+
+.card__info {
+  align-self: flex-start;
+  margin-bottom: 36px;
+  font-family: 'Pragati Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: #666;
+}
+
+.card__descriptor {
+  font-weight: 700;
+  color: black;
+}
+
+.card__name {
+  align-self: flex-start;
+  border-bottom: 4px solid #135a69;
+  margin-bottom: 12px;
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: black;
+}
