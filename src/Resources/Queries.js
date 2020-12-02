@@ -15,6 +15,7 @@ const GET_SNOWBOARDS = gql`
 const GET_MANUFACTURER = gql`
   query GetManufacturer ($name: String) {
     manufacturer(name: $name) {
+      name
       location
     }
   }
