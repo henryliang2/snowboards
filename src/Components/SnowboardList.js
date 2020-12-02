@@ -1,13 +1,15 @@
 import React, { useEffect, useContext, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
-import { QueryArgumentContext } from '../App';
+import { Link, useParams } from 'react-router-dom';
+import { QueryArgumentContext, SnowboardContext } from '../App';
 
 const SnowboardList = (props) => {
 
   let { type, manufacturer } = useParams();
+  const { setSnowboards } = useContext(SnowboardContext);
   const { setQueryArguments } = useContext(QueryArgumentContext);
 
   const getQueryFromParams = useCallback(() => {
+    setSnowboards([]);
     if (type) setQueryArguments({ type });
     if (manufacturer) setQueryArguments({ manufacturer });
   }, [type, manufacturer])
@@ -32,11 +34,11 @@ const SnowboardList = (props) => {
                 </div>
                 <div className='card__style'>
                   <span className='card__descriptor'>STYLE:&nbsp;</span>
-                  {snowboard.style}
+                  <Link to={`/type/${snowboard.style}`}>{snowboard.style}</Link>
                 </div>
                 <div className='card__manufacturer'>
                   <span className='card__descriptor'>BUILT BY:&nbsp;</span>
-                  {snowboard.manufacturer}
+                  <Link to={`/manufacturer/${snowboard.manufacturer}`}>{snowboard.manufacturer}</Link>
                 </div>
               </div>
               <div className='card__image'><img src={snowboard.image} alt={snowboard.name} /></div>

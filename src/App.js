@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import SnowboardList from './Components/SnowboardList';
 import Navigation from './Components/Navigation';
-import Landing from './Components/Landing'
+import Landing from './Components/Landing';
+import ManufacturerHeader from './Components/ManufacturerHeader'
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,7 +19,7 @@ export const QueryArgumentContext = React.createContext(null);
 
 const App = () => {
 
-  const [snowboards, setSnowboards] = useState([])
+  const [snowboards, setSnowboards] = useState([]);
   const [queryArguments, setQueryArguments] = useState({});
 
   const client = new ApolloClient({
@@ -26,7 +27,7 @@ const App = () => {
     cache: new InMemoryCache()
   });
 
-  useEffect(() => {
+  const fetchSnowboards = () => {
     client.query({
       query: queries.GET_SNOWBOARDS,
       variables: queryArguments
@@ -36,37 +37,59 @@ const App = () => {
       setSnowboards(response.data.snowboards);
     })
     .catch(e => { console.log(e)})
+  }
+
+  const fetchManufacturer = async (name) => {
+    const data = client.query({
+      query: queries.GET_MANUFACTURER,
+      variables: { name }
+    })
+    .catch(e => { console.log(e)})
+    return data;
+  }
+
+  useEffect(() => {
+    if(queryArguments.type || queryArguments.manufacturer) fetchSnowboards();
   }, [queryArguments])
 
   return (
     <div className="App">
-      <SnowboardContext.Provider value={{ snowboards, setSnowboards }}>
-        <QueryArgumentContext.Provider value={{ queryArguments, setQueryArguments }}>
+      <ApolloProvider client={client}>
+        <SnowboardContext.Provider value={{ snowboards, setSnowboards }}>
+          <QueryArgumentContext.Provider value={{ queryArguments, setQueryArguments }}>
 
-        <Router>
+          <Router>
 
-          <Navigation />
+            <Navigation />
 
             <main>
                 
               <Switch>
+
                 <Route exact path="/">
                   <Landing />
                 </Route>
+
                 <Route path="/manufacturer/:manufacturer" children={
-                  <SnowboardList snowboards={snowboards} />
+                  <React.Fragment>
+                    <ManufacturerHeader fetchManufacturer={fetchManufacturer} />
+                    <SnowboardList snowboards={snowboards} />
+                  </React.Fragment>
                 } />
+
                 <Route path="/type/:type" children={
                   <SnowboardList snowboards={snowboards} />
                 } />
+                
               </Switch>
-              
+
             </main>
 
-          </Router>
+            </Router>
 
-        </QueryArgumentContext.Provider>
-      </SnowboardContext.Provider>
+          </QueryArgumentContext.Provider>
+        </SnowboardContext.Provider>
+      </ApolloProvider>
     </div>
     
   );

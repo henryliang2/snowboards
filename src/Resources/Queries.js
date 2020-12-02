@@ -8,12 +8,21 @@ const GET_SNOWBOARDS = gql`
       image
       manufacturer
       directional
-      }
     }
-  `
+  }
+`
+
+const GET_MANUFACTURER = gql`
+  query GetManufacturer ($name: String) {
+    manufacturer(name: $name) {
+      location
+    }
+  }
+`
 
 const Queries = {
-  GET_SNOWBOARDS
+  GET_SNOWBOARDS,
+  GET_MANUFACTURER
 }
 
 export default Queries;

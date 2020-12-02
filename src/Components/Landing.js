@@ -25,7 +25,7 @@ const Landing = () => {
           handleSubmit();
         }
       }>
-        <div className='landing__title'>Quality snowboards made right here at</div>
+        <div className='landing__title'>Quality snowboards made in Canada</div>
         <div className='landing__category'>Browse by Riding Style</div>
         <div className='landing__select'>
           <select 
