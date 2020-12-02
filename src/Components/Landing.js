@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { SnowboardContext } from '../App';
 import './../Styles/Landing.css'
 
 const Landing = () => {
+  
+  const history = useHistory();
+  const { snowboards, setSnowboards } = useContext(SnowboardContext);
 
-  const [ridingStyle, setRidingStyle] = useState('');
+  const [type, setType] = useState('');
   const [manufacturer, setManufacturer] = useState('');
 
   const handleSubmit = () => {
-    if (ridingStyle.length) {
-
-    }
-    
-    if (manufacturer.length) {
-      
-    }
+    if (type.length) history.push(`/type/${type}`)
+    if (manufacturer.length) history.push(`/manufacturer/${manufacturer}`)
   }
 
   return (
@@ -21,6 +21,7 @@ const Landing = () => {
       <form 
         onSubmit={(e) => {
           e.preventDefault();
+          setSnowboards([]);
           handleSubmit();
         }
       }>
@@ -28,9 +29,9 @@ const Landing = () => {
         <div className='landing__category'>Browse by Riding Style</div>
         <div className='landing__select'>
           <select 
-            value={ridingStyle}
+            value={type}
             onChange={(e) => { 
-              setRidingStyle(e.target.value)
+              setType(e.target.value)
               setManufacturer('');
             }}
             >
@@ -47,7 +48,7 @@ const Landing = () => {
             value={manufacturer}
             onChange={(e) => { 
               setManufacturer(e.target.value)
-              setRidingStyle('');
+              setType('');
             }}
             >
             <option value=''>Choose a manufacturer</option>

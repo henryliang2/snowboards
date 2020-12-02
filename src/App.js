@@ -43,25 +43,27 @@ const App = () => {
       <SnowboardContext.Provider value={{ snowboards, setSnowboards }}>
         <QueryArgumentContext.Provider value={{ queryArguments, setQueryArguments }}>
 
+        <Router>
+
           <Navigation />
 
-          <main>
-            <ApolloProvider client={client}>
-              <Router>
-                <Switch>
-                  <Route exact path="/">
-                    <Landing />
-                  </Route>
-                  <Route path="/boards/manufacturer/:manufacturer" children={
-                    <SnowboardList snowboards={snowboards} />
-                  } />
-                  <Route path="/boards/type/:type" children={
-                    <SnowboardList snowboards={snowboards} />
-                  } />
-                </Switch>
-              </Router>
-            </ApolloProvider>
-          </main>
+            <main>
+                
+              <Switch>
+                <Route exact path="/">
+                  <Landing />
+                </Route>
+                <Route path="/manufacturer/:manufacturer" children={
+                  <SnowboardList snowboards={snowboards} />
+                } />
+                <Route path="/type/:type" children={
+                  <SnowboardList snowboards={snowboards} />
+                } />
+              </Switch>
+              
+            </main>
+
+          </Router>
 
         </QueryArgumentContext.Provider>
       </SnowboardContext.Provider>
