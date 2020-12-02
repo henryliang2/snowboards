@@ -12,9 +12,7 @@ import {
 import './App.css';
 import queries from './Resources/Queries'
 
-
 export const SnowboardContext = React.createContext(null);
-
 export const QueryArgumentContext = React.createContext(null);
 
 const App = () => {
@@ -22,7 +20,8 @@ const App = () => {
   const [snowboards, setSnowboards] = useState([]);
   const [queryArguments, setQueryArguments] = useState({});
 
-  const { loading, error, data } = useQuery(queries.GET_SNOWBOARDS, {
+  const { data } = useQuery(
+    queries.GET_SNOWBOARDS, {
     variables: queryArguments
   })
 
@@ -30,7 +29,7 @@ const App = () => {
     if((queryArguments.type || queryArguments.manufacturer) && data) {
       setSnowboards(data.snowboards)
     }
-  }, [data])
+  }, [data, queryArguments])
 
   return (
     <div className="App">

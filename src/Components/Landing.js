@@ -6,7 +6,7 @@ import './../Styles/Landing.css'
 const Landing = () => {
   
   const history = useHistory();
-  const { snowboards, setSnowboards } = useContext(SnowboardContext);
+  const { setSnowboards } = useContext(SnowboardContext);
 
   const [type, setType] = useState('');
   const [manufacturer, setManufacturer] = useState('');

@@ -17,6 +17,7 @@ const GET_MANUFACTURER = gql`
     manufacturer(name: $name) {
       name
       location
+      logo
     }
   }
 `
