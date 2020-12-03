@@ -4,6 +4,13 @@ import { SnowboardContext } from '../App';
 import './../Styles/Landing.css'
 
 const Landing = () => {
+
+  const listOfManufacturers = [
+    'Wired Snowboards',
+    'Hightide Mfg',
+    'Knwn Mfg',
+    'Trapper Snowboards'
+  ]
   
   const history = useHistory();
   const { setSnowboards } = useContext(SnowboardContext);
@@ -52,10 +59,9 @@ const Landing = () => {
             }}
             >
             <option value=''>Choose a manufacturer</option>
-            <option value='Wired Snowboards'>Wired Snowboards</option>
-            <option value='Hightide Mfg'>Hightide Mfg</option>
-            <option value='Knwn Mfg'>Knwn Mfg</option>
-            <option value='Trapper Snowboards'>Trapper Snowboards</option>
+            {
+              listOfManufacturers.map((mfr) => <option key={mfr} value={mfr}>{mfr}</option>)
+            }
           </select>
         </div>
         <input type='submit' value='Search' />
