@@ -4,6 +4,7 @@ import SnowboardList from './Components/SnowboardList';
 import Navigation from './Components/Navigation';
 import Landing from './Components/Landing';
 import ManufacturerHeader from './Components/ManufacturerHeader'
+import SnowboardShowcase from './Components/SnowboardShowcase'
 import {
   BrowserRouter as Router,
   Switch,
@@ -57,6 +58,10 @@ const App = () => {
 
               <Route path="/type/:type" children={
                 <SnowboardList snowboards={snowboards} />
+              } />
+
+              <Route path="/snowboard/:name" children={
+                <SnowboardShowcase />
               } />
               
             </Switch>

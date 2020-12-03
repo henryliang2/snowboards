@@ -1,0 +1,19 @@
+.showcase__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 48px;
+}
+
+.showcase__name {
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: black;
+}
+
+.showcase__descriptor {
+  font-family: 'Pragati Narrow', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}

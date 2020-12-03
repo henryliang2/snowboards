@@ -12,6 +12,20 @@ const GET_SNOWBOARDS = gql`
   }
 `
 
+const GET_SNOWBOARD = gql`
+  query GetSnowboard ($name: String) {
+    snowboard(name: $name) {
+      name
+      manufacturer
+      style
+      image
+      manufacturer
+      directional
+      wide
+    }
+  }
+`
+
 const GET_MANUFACTURER = gql`
   query GetManufacturer ($name: String) {
     manufacturer(name: $name) {
@@ -24,6 +38,7 @@ const GET_MANUFACTURER = gql`
 
 const Queries = {
   GET_SNOWBOARDS,
+  GET_SNOWBOARD,
   GET_MANUFACTURER
 }
 
