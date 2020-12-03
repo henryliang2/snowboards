@@ -11,6 +11,7 @@ const SnowboardShowcase = () => {
     name: '',
     manufacturer: '',
     image: '',
+    description: '',
     directional: null,
     wide: null,
   })
@@ -26,6 +27,7 @@ const SnowboardShowcase = () => {
         ...data.snowboard,
         name: data.snowboard.name.toUpperCase()
       })
+      console.log(data.snowboard)
     }
   }, [data])
 
@@ -47,7 +49,10 @@ const SnowboardShowcase = () => {
             <span className='showcase__descriptor'>WIDTH:&nbsp;</span>
             { snowboard.wide ? 'Wide' : 'Normal' }
           </div>
-          <div className='showcase__description'></div>
+          <div className='showcase__description'>
+            <span className='showcase__descriptor'>WHAT THEY SAY<br /></span>
+            { snowboard.description }
+          </div>
         </div>
       </div>
     </React.Fragment>

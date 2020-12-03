@@ -17,3 +17,17 @@
   font-size: 1.2rem;
   line-height: 1.4rem;
 }
+
+.showcase__image {
+  display: flex;
+  justify-content: flex-end; /* Align to the Right */
+}
+
+.showcase__image > img {
+  max-height: 500px
+}
+
+.showcase__description {
+  margin-top: 12px;
+  max-width: 420px;
+}

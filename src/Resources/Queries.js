@@ -22,6 +22,7 @@ const GET_SNOWBOARD = gql`
       manufacturer
       directional
       wide
+      description
     }
   }
 `

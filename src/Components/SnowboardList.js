@@ -26,7 +26,9 @@ const SnowboardList = (props) => {
 
           return (
             <div className='card' key={i}>
-              <div className='card__name'>{upperCasedName}</div>
+
+              <div className='card__name'><Link to={`/snowboard/${snowboard.name}`}>{upperCasedName}</Link></div>
+
               <div className='card__info'>
                 <div className='card__type'>
                   <span className='card__descriptor'>TYPE:&nbsp;</span>
@@ -41,6 +43,7 @@ const SnowboardList = (props) => {
                   <Link to={`/manufacturer/${snowboard.manufacturer}`}>{snowboard.manufacturer}</Link>
                 </div>
               </div>
+              
               <div className='card__image'><img src={snowboard.image} alt={snowboard.name} /></div>
             </div>
           )}

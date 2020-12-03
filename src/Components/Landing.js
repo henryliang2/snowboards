@@ -54,6 +54,8 @@ const Landing = () => {
             <option value=''>Choose a manufacturer</option>
             <option value='Wired Snowboards'>Wired Snowboards</option>
             <option value='Hightide Mfg'>Hightide Mfg</option>
+            <option value='Knwn Mfg'>Knwn Mfg</option>
+            <option value='Trapper Snowboards'>Trapper Snowboards</option>
           </select>
         </div>
         <input type='submit' value='Search' />
