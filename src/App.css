@@ -11,6 +11,32 @@ main {
   margin: auto;
 }
 
+.landing {
+  display: flex;
+  flex-direction: row;
+  margin-top: 48px;
+}
+
+.landing__form {
+  padding: 48px;
+}
+
+.landing__image > img {
+  width: 600px;
+}
+
+.header__type {
+  display: flex;
+  justify-content: center;
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: black;
+  margin: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid black;
+}
+
 .card__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -53,7 +79,7 @@ main {
   font-family: 'Pragati Narrow', sans-serif;
   font-size: 1.8rem;
   line-height: 1.8rem;
-  padding-bottom: 24px;
+  padding-bottom: 12px;
   font-weight: 700;
   color: black;
 }

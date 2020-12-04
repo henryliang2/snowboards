@@ -1,6 +1,7 @@
 .showcase__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   margin-top: 48px;
 }
 
@@ -18,9 +19,14 @@
   line-height: 1.4rem;
 }
 
+.showcase__info {
+  padding: 24px
+}
+
 .showcase__image {
   display: flex;
   justify-content: flex-end; /* Align to the Right */
+  padding: 24px;
 }
 
 .showcase__image > img {

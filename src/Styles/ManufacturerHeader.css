@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 48px;
   border-bottom: 1px solid black;
 }
 
@@ -14,4 +14,8 @@
   font-size: 1.8rem;
   font-weight: 700;
   color: black;
+}
+
+.header__logo > img {
+  min-height: 120px;
 }

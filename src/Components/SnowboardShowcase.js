@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import queries from './../Resources/Queries'
@@ -12,8 +13,8 @@ const SnowboardShowcase = () => {
     manufacturer: '',
     image: '',
     description: '',
-    directional: null,
-    wide: null,
+    directional: false,
+    wide: false,
   })
 
   const { name } = useParams();
@@ -39,7 +40,11 @@ const SnowboardShowcase = () => {
           <div className='showcase__name'>{ snowboard.name }</div>
           <div className='showcase__manufacturer'>
             <span className='showcase__descriptor'>BUILT BY:&nbsp;</span>
-            { snowboard.manufacturer }
+            <Link to={`/manufacturer/${snowboard.manufacturer}`}>{ snowboard.manufacturer }</Link>
+          </div>
+          <div className='showcase__style'>
+            <span className='showcase__descriptor'>STYLE:&nbsp;</span>
+            <Link to={`/type/${snowboard.style}`}>{snowboard.style}</Link>
           </div>
           <div className='showcase__directional'>
             <span className='showcase__descriptor'>SHAPE:&nbsp;</span>
@@ -47,7 +52,7 @@ const SnowboardShowcase = () => {
          }</div>
           <div className='showcase__width'>
             <span className='showcase__descriptor'>WIDTH:&nbsp;</span>
-            { snowboard.wide ? 'Wide' : 'Normal' }
+            { snowboard.wide ? 'Wide' : 'Standard' }
           </div>
           <div className='showcase__description'>
             <span className='showcase__descriptor'>WHAT THEY SAY<br /></span>

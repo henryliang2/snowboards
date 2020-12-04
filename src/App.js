@@ -57,7 +57,10 @@ const App = () => {
               } />
 
               <Route path="/type/:type" children={
-                <SnowboardList snowboards={snowboards} />
+                <React.Fragment>
+                  <div className='header__type'>{ queryArguments.type } Snowboards</div>
+                  <SnowboardList snowboards={snowboards} />
+                </React.Fragment>
               } />
 
               <Route path="/snowboard/:name" children={
