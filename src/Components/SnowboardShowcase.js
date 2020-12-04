@@ -40,11 +40,15 @@ const SnowboardShowcase = () => {
           <div className='showcase__name'>{ snowboard.name }</div>
           <div className='showcase__manufacturer'>
             <span className='showcase__descriptor'>BUILT BY:&nbsp;</span>
-            <Link to={`/manufacturer/${snowboard.manufacturer}`}>{ snowboard.manufacturer }</Link>
+            <span className='showcase__link'>
+              <Link to={`/manufacturer/${snowboard.manufacturer}`}>{ snowboard.manufacturer }</Link>
+            </span>
           </div>
           <div className='showcase__style'>
             <span className='showcase__descriptor'>STYLE:&nbsp;</span>
-            <Link to={`/type/${snowboard.style}`}>{snowboard.style}</Link>
+            <span className='showcase__link'>
+              <Link to={`/type/${snowboard.style}`}>{snowboard.style}</Link>
+            </span>
           </div>
           <div className='showcase__directional'>
             <span className='showcase__descriptor'>SHAPE:&nbsp;</span>

@@ -28,6 +28,7 @@ const Landing = () => {
 
   return (
     <div className='landing'>
+      <div className='landing__image'><img src={SnowboarderImage} alt='Snowboarder' /></div>
       <div className='landing__form'>
         <form 
           onSubmit={(e) => {
@@ -71,7 +72,6 @@ const Landing = () => {
           <input type='submit' value='Search' />
         </form>
       </div>
-      <div className='landing__image'><img src={SnowboarderImage} alt='Snowboarder' /></div>
     </div>
   );
 

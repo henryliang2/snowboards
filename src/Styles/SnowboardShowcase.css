@@ -37,3 +37,8 @@
   margin-top: 12px;
   max-width: 420px;
 }
+
+.showcase__link:hover {
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}

@@ -19,3 +19,13 @@
 .header__logo > img {
   min-height: 120px;
 }
+
+.header__logo {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.fade-in {
+  left: 0;
+  opacity: 1;
+}

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import queries from './../Resources/Queries';
 import './../Styles/ManufacturerHeader.css';
+import './../App.css';
 
 const ManufacturerHeader = (props, { client }) => {
 
@@ -13,8 +14,8 @@ const ManufacturerHeader = (props, { client }) => {
   
   const [name, setName] = useState('');
   const [logo, setLogo] = useState('');
-  const [location, setLocation] = useState('');
-  const [coordinates, setCoordinates] = useState('');
+
+  const headerLogoRef = useRef(null);
 
   useEffect(() => {
     if(data){
@@ -26,7 +27,13 @@ const ManufacturerHeader = (props, { client }) => {
 
   return (
     <div className='header'>
-      <div className='header__logo'><img src={logo} alt='logo' /></div>
+      <div className='header__logo' ref={ headerLogoRef }>
+        <img 
+          src={logo} 
+          alt='logo' 
+          onLoad={() => { headerLogoRef.current.classList.add('fade-in') }}
+          />
+      </div>
       <div className='header__name'>{ name }</div>
     </div>
   );

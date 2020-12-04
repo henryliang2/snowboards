@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useCallback } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { QueryArgumentContext, SnowboardContext } from '../App';
+import SnowboardCard from './SnowboardCard';
 
 const SnowboardList = (props) => {
 
@@ -21,32 +22,7 @@ const SnowboardList = (props) => {
   return (
     <div className='card__container'>
       { props.snowboards &&
-        props.snowboards.map((snowboard, i) => {
-          const upperCasedName = snowboard.name.toUpperCase();
-
-          return (
-            <div className='card' key={i}>
-
-              <div className='card__name'><Link to={`/snowboard/${snowboard.name}`}>{upperCasedName}</Link></div>
-
-              <div className='card__info'>
-                <div className='card__type'>
-                  <span className='card__descriptor'>TYPE:&nbsp;</span>
-                  {snowboard.directional ? 'Directional' : 'Twin'}
-                </div>
-                <div className='card__style'>
-                  <span className='card__descriptor'>STYLE:&nbsp;</span>
-                  <Link to={`/type/${snowboard.style}`}>{snowboard.style}</Link>
-                </div>
-                <div className='card__manufacturer'>
-                  <span className='card__descriptor'>BUILT BY:&nbsp;</span>
-                  <Link to={`/manufacturer/${snowboard.manufacturer}`}>{snowboard.manufacturer}</Link>
-                </div>
-              </div>
-              
-              <div className='card__image'><img src={snowboard.image} alt={snowboard.name} /></div>
-            </div>
-          )}
+        props.snowboards.map(snowboard => <SnowboardCard snowboard={snowboard} key={snowboard.name}/>
     )}
   </div>
   );
