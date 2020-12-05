@@ -13,6 +13,7 @@ const Landing = () => {
     'Knwn Mfg',
     'Endeavor Snowboards',
     'Trapper Snowboards',
+    'Prior Snowboards and Skis'
   ]
   
   const history = useHistory();

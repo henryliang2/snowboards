@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import queries from './../Resources/Queries'
 import './../Styles/SnowboardShowcase.css'
@@ -17,10 +17,18 @@ const SnowboardShowcase = () => {
     wide: false,
   })
 
+  const imageRef = useRef(null);
+  const containerRef = useRef(null);
+
+  const history = useHistory();
   const { name } = useParams();
   const { data } = useQuery(queries.GET_SNOWBOARD, {
     variables: { name: name }
   })
+
+  const handleImageLoad = () => {
+    containerRef.current.classList.add('fade-in')
+  }
 
   useEffect(() => {
     if(data) {
@@ -32,10 +40,21 @@ const SnowboardShowcase = () => {
     }
   }, [data])
 
+  useEffect(() => {
+    if(imageRef.current && imageRef.current.complete) handleImageLoad()
+  })
+
   return (
     <React.Fragment>
-      <div className='showcase__container'>
-        <div className='showcase__image'><img alt='snowboard' src={ snowboard.image } /></div>
+      <div className='showcase__container' ref={containerRef}>
+        <div className='showcase__image'>
+          <img 
+            alt='snowboard' 
+            src={ snowboard.image } 
+            ref={imageRef} 
+            onLoad={handleImageLoad}
+            />
+        </div>
         <div className='showcase__info'>
           <div className='showcase__name'>{ snowboard.name }</div>
           <div className='showcase__manufacturer'>
@@ -63,6 +82,11 @@ const SnowboardShowcase = () => {
             { snowboard.description }
           </div>
         </div>
+      </div>
+      <div className='showcase__back-button'>
+        <span onClick={() => { history.goBack() }}>
+          ← Back to Snowboards
+        </span>
       </div>
     </React.Fragment>
   )

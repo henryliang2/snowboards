@@ -17,6 +17,7 @@
 }
 
 .header__logo > img {
+  max-width: 800px;
   min-height: 120px;
 }
 

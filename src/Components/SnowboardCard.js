@@ -1,12 +1,21 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './../App.css'
 
 const SnowboardCard = ({ snowboard }) => {
 
-  const cardRef = useRef(null);
-
   const upperCasedName = snowboard.name.toUpperCase();
+
+  const cardRef = useRef(null);
+  const imageRef = useRef(null);
+
+  const handleImageLoaded = () => {
+    cardRef.current.classList.add('fade-in');
+  }
+
+  useEffect(() => {
+    if(imageRef.current && imageRef.current.complete) handleImageLoaded();
+  })
 
   return (
     <div className='card' ref={ cardRef }>
@@ -33,8 +42,8 @@ const SnowboardCard = ({ snowboard }) => {
         <img 
           className='card__image'
           src={snowboard.image} 
-          alt={snowboard.name} 
-          onLoad={() => { cardRef.current.classList.add('fade-in') }}
+          alt={snowboard.name}
+          onLoad={ handleImageLoaded }
           />
       </div>
     </div>
