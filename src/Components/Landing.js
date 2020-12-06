@@ -39,7 +39,10 @@ const Landing = () => {
           <div className='landing__category'>
             <div 
               className='landing__category-title'
-              onClick={ () => { setDisplayStyles(!displayStyles) }}>
+              onClick={ () => { 
+                setDisplayStyles(!displayStyles) 
+                setDisplayManufacturers(false);
+              }}>
                 Browse by Riding Style
             </div>
             <div 
@@ -66,7 +69,10 @@ const Landing = () => {
           <div className='landing__category'>
             <div 
               className='landing__category-title'
-              onClick={ () => { setDisplayManufacturers(!displayManufacturers) }}>
+              onClick={ () => { 
+                setDisplayManufacturers(!displayManufacturers) 
+                setDisplayStyles(false);
+              }}>
                 Browse by Manufacturer
             </div>
             <div 

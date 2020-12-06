@@ -13,7 +13,7 @@ const SnowboardList = (props) => {
     setSnowboards([]);
     if (type) setQueryArguments({ type });
     if (manufacturer) setQueryArguments({ manufacturer });
-  }, [type, manufacturer])
+  }, [type, manufacturer]) //eslint-disable-line
 
   useEffect(() => {
     getQueryFromParams();
