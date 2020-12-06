@@ -40,27 +40,27 @@ const App = () => {
         <Router>
 
           <Navigation />
-
-          <main>
               
             <Switch>
 
               <Route exact path="/">
-                <Landing />
+                <div className='layout layout--100pct'>
+                  <Landing />
+                </div>
               </Route>
 
               <Route path="/manufacturer/:manufacturer" children={
-                <React.Fragment>
+                <div className='layout layout--90pct'>
                   <ManufacturerHeader />
                   <SnowboardList snowboards={snowboards} />
-                </React.Fragment>
+                </div>
               } />
 
               <Route path="/type/:type" children={
-                <React.Fragment>
+                <div className='layout layout--90pct'>
                   <div className='header__type'>{ queryArguments.type } Snowboards</div>
                   <SnowboardList snowboards={snowboards} />
-                </React.Fragment>
+                </div>
               } />
 
               <Route path="/snowboard/:name" children={
@@ -68,8 +68,6 @@ const App = () => {
               } />
               
             </Switch>
-
-          </main>
 
           </Router>
 

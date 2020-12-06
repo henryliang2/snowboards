@@ -81,6 +81,11 @@ const SnowboardShowcase = () => {
             <span className='showcase__descriptor'>WHAT THEY SAY<br /></span>
             { snowboard.description }
           </div>
+          <div className='showcase__link'>
+            <a href={ snowboard.website } target='_blank' rel='noopenner noreferrer'>
+              <span className='showcase__descriptor'>MANUFACTURER'S WEBSITE »</span>
+            </a>
+          </div>
         </div>
       </div>
       <div className='showcase__back-button'>

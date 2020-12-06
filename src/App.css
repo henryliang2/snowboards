@@ -5,24 +5,18 @@ a {
   text-decoration: none;
 }
 
-main {
-  width: 90%;
-  max-width: 1200px;
+.layout {
   margin: auto;
 }
 
-.landing {
-  display: flex;
-  flex-direction: row;
-  margin-top: 48px;
+.layout--100pct {
+  width: 100%;
+  max-width: 1200px;
 }
 
-.landing__form {
-  padding: 48px;
-}
-
-.landing__image > img {
-  width: 600px;
+.layout--90pct {
+  width: 90%;
+  max-width: 1200px;
 }
 
 .header__type {

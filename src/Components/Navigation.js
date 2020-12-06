@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './../Styles/Navigation.css'
+import MapleLeaf from './../Resources/maple-leaf.png'
 
 const Navigation = () => {
   
@@ -8,7 +9,10 @@ const Navigation = () => {
     <div className='nav'>
       <div className='nav__inner'>
         <Link to='/'>
-          <div className='nav__title'>CANADIAN<br/>SNOWBOARDS</div>
+          <div className='nav__logo'>
+            <div className='nav__leaf'><img src={ MapleLeaf } alt='maple leaf'/></div>
+            <div className='nav__title'>CANADIAN<br/>SNOWBOARDS</div>
+          </div>
         </Link>
       </div>
     </div>

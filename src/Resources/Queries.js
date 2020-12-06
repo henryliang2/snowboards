@@ -23,6 +23,7 @@ const GET_SNOWBOARD = gql`
       directional
       wide
       description
+      website
     }
   }
 `

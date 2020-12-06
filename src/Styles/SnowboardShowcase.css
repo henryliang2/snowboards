@@ -35,8 +35,12 @@
 }
 
 .showcase__description {
-  margin-top: 12px;
+  margin-top: 24px;
   max-width: 420px;
+}
+
+.showcase__link { 
+  margin-top: 24px;
 }
 
 .showcase__link:hover {

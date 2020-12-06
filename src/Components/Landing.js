@@ -28,62 +28,68 @@ const Landing = () => {
   const history = useHistory();
 
   return (
-    <div className='landing'>
-    
-      <div className='landing__column landing__column--left'>
-        <div className='landing__category'>
-          <div 
-            className='landing__category-title'
-            onClick={ () => { setDisplayStyles(!displayStyles) }}>
-              Browse by Riding Style
-          </div>
-          <div 
-            className='landing__selection'
-            style={{ 
-              visibility: displayStyles ? 'visible' : 'hidden',
-              opacity: displayStyles ? 1 : 0 
-            }}>
-            { listOfStyles.map(style => (
-                <div 
-                  className='landing__option'
-                  style={{ top: displayStyles ? '16px' : '0'}}
-                  onClick={() => { history.push(`/type/${style}`) }}
-                  key={style}>
-                    {style}
-                </div>
-              )) 
-            }
-          </div>
-        </div>
+    <React.Fragment>
+      <div className='landing__header'>
+        <span>SHOP LOCAL. QUALITY SNOWBOARDS</span><br/>
+        <span>ARE MADE RIGHT HERE AT HOME.</span>
       </div>
 
-      <div className='landing__column landing__column--right'>
-        <div className='landing__category'>
-          <div 
-            className='landing__category-title'
-            onClick={ () => { setDisplayManufacturers(!displayManufacturers) }}>
-              Browse by Manufacturer
+      <div className='landing'>
+        <div className='landing__column landing__column--left'>
+          <div className='landing__category'>
+            <div 
+              className='landing__category-title'
+              onClick={ () => { setDisplayStyles(!displayStyles) }}>
+                Browse by Riding Style
+            </div>
+            <div 
+              className='landing__selection'
+              style={{ 
+                visibility: displayStyles ? 'visible' : 'hidden',
+                opacity: displayStyles ? 1 : 0 
+              }}>
+              { listOfStyles.map(style => (
+                  <div 
+                    className='landing__option'
+                    style={{ top: displayStyles ? '16px' : '0'}}
+                    onClick={() => { history.push(`/type/${style}`) }}
+                    key={style}>
+                      {style}
+                  </div>
+                )) 
+              }
+            </div>
           </div>
-          <div 
-            className='landing__selection'
-            style={{ 
-              visibility: displayManufacturers ? 'visible' : 'hidden',
-              opacity: displayManufacturers ? 1 : 0 
-            }}>
-            { listOfManufacturers.map(mfr => (
-                <div 
-                  className='landing__option'
-                  style={{ top: displayManufacturers ? '16px' : '0'}}
-                  onClick={() => { history.push(`/manufacturer/${mfr}`) }}
-                  key={mfr}>
-                    {mfr}
-                </div>
-              )) 
-            }
+        </div>
+
+        <div className='landing__column landing__column--right'>
+          <div className='landing__category'>
+            <div 
+              className='landing__category-title'
+              onClick={ () => { setDisplayManufacturers(!displayManufacturers) }}>
+                Browse by Manufacturer
+            </div>
+            <div 
+              className='landing__selection'
+              style={{ 
+                visibility: displayManufacturers ? 'visible' : 'hidden',
+                opacity: displayManufacturers ? 1 : 0 
+              }}>
+              { listOfManufacturers.map(mfr => (
+                  <div 
+                    className='landing__option'
+                    style={{ top: displayManufacturers ? '16px' : '0'}}
+                    onClick={() => { history.push(`/manufacturer/${mfr}`) }}
+                    key={mfr}>
+                      {mfr}
+                  </div>
+                )) 
+              }
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 
 }
