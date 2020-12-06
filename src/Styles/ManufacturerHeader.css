@@ -9,11 +9,12 @@
   border-bottom: 1px solid black;
 }
 
-.header__name {
+.header__location {
   font-family: 'Pragati Narrow', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 400;
   color: black;
+  margin-top: 18px;
 }
 
 .header__logo > img {

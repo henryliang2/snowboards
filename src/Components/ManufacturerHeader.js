@@ -12,7 +12,7 @@ const ManufacturerHeader = (props, { client }) => {
     variables: { name: manufacturer}
   })
   
-  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
   const [logo, setLogo] = useState('');
 
   const headerLogoRef = useRef(null);
@@ -21,7 +21,7 @@ const ManufacturerHeader = (props, { client }) => {
     if(data){
       console.log(data.manufacturer)
       setLogo(data.manufacturer.logo)
-      setName(data.manufacturer.name.toUpperCase());
+      setLocation(data.manufacturer.location)
     }
   }, [data])
 
@@ -34,6 +34,7 @@ const ManufacturerHeader = (props, { client }) => {
           onLoad={() => { headerLogoRef.current.classList.add('fade-in') }}
           />
       </div>
+      <div className='header__location'>{`Headquarters: ${location}`}</div>
     </div>
   );
 }
