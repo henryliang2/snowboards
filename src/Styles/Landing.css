@@ -93,3 +93,23 @@
 .landing__column--right {
   background-image: url('./../Resources/bg_right-col.jpg');
 }
+
+@media only screen and (max-width: 768px) {
+  .landing {
+    grid-template-columns: 1fr;
+  }
+
+  .landing__header { 
+    font-size: 1.2rem;
+    height: 120px;
+  }
+
+  .landing__header > span { 
+    background: white;
+    color: black;
+  }
+
+  .landing__selection {
+    z-index: 2;
+  }
+}

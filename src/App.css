@@ -36,6 +36,18 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+@media only screen and (max-width: 1024px) {
+  .card__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .card__container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card {
   margin: 20px;
   margin-bottom: 60px;
@@ -87,6 +99,16 @@ a {
   padding-bottom: 12px;
   font-weight: 700;
   color: black;
+}
+
+@media only screen and (max-width: 800px) { 
+  .card__name {
+    font-size: 1.6rem;
+  }
+
+  .card__image {
+    max-width: 240px;
+  }
 }
 
 .card__link:hover {
