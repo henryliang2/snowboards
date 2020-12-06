@@ -28,9 +28,12 @@
 
 .landing__selection {
   position: absolute;
+  transition: all 0.3s ease;
 }
 
 .landing__option {
+  position: relative;
+  top: 0;
   background: black;
   padding: 12px;
   color: white;

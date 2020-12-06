@@ -37,19 +37,23 @@ const Landing = () => {
             onClick={ () => { setDisplayStyles(!displayStyles) }}>
               Browse by Riding Style
           </div>
-          { displayStyles &&
-            <div className='landing__selection'>
-              { listOfStyles.map(style => (
-                  <div 
-                    className='landing__option'
-                    onClick={() => { history.push(`/type/${style}`) }}
-                    key={style}>
-                      {style}
-                  </div>
-                )) 
-              }
-            </div>
-          }
+          <div 
+            className='landing__selection'
+            style={{ 
+              visibility: displayStyles ? 'visible' : 'hidden',
+              opacity: displayStyles ? 1 : 0 
+            }}>
+            { listOfStyles.map(style => (
+                <div 
+                  className='landing__option'
+                  style={{ top: displayStyles ? '16px' : '0'}}
+                  onClick={() => { history.push(`/type/${style}`) }}
+                  key={style}>
+                    {style}
+                </div>
+              )) 
+            }
+          </div>
         </div>
       </div>
 
@@ -60,19 +64,23 @@ const Landing = () => {
             onClick={ () => { setDisplayManufacturers(!displayManufacturers) }}>
               Browse by Manufacturer
           </div>
-          { displayManufacturers &&
-            <div className='landing__selection'>
-              { listOfManufacturers.map(mfr => (
-                  <div 
-                    className='landing__option'
-                    onClick={() => { history.push(`/manufacturer/${mfr}`) }}
-                    key={mfr}>
-                      {mfr}
-                  </div>
-                )) 
-              }
-            </div>
-          }
+          <div 
+            className='landing__selection'
+            style={{ 
+              visibility: displayManufacturers ? 'visible' : 'hidden',
+              opacity: displayManufacturers ? 1 : 0 
+            }}>
+            { listOfManufacturers.map(mfr => (
+                <div 
+                  className='landing__option'
+                  style={{ top: displayManufacturers ? '16px' : '0'}}
+                  onClick={() => { history.push(`/manufacturer/${mfr}`) }}
+                  key={mfr}>
+                    {mfr}
+                </div>
+              )) 
+            }
+          </div>
         </div>
       </div>
     </div>
