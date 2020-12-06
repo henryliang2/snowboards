@@ -52,7 +52,6 @@ const SnowboardShowcase = () => {
             alt='snowboard' 
             src={ snowboard.image } 
             ref={imageRef} 
-            onLoad={handleImageLoad}
             />
         </div>
         <div className='showcase__info'>

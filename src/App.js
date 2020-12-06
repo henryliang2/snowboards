@@ -11,7 +11,8 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
-import queries from './Resources/Queries'
+import queries from './Resources/Queries';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 export const SnowboardContext = React.createContext(null);
 export const QueryArgumentContext = React.createContext(null);
@@ -21,7 +22,7 @@ const App = () => {
   const [snowboards, setSnowboards] = useState([]);
   const [queryArguments, setQueryArguments] = useState({});
 
-  const { data } = useQuery(
+  const { loading, data } = useQuery(
     queries.GET_SNOWBOARDS, {
     variables: queryArguments
   })
@@ -44,9 +45,12 @@ const App = () => {
             <Switch>
 
               <Route exact path="/">
-                <div className='layout layout--100pct'>
-                  <Landing />
-                </div>
+                { loading
+                  ? <LinearProgress />
+                  : <div className='layout layout--100pct'>
+                      <Landing />
+                    </div> 
+                }
               </Route>
 
               <Route path="/manufacturer/:manufacturer" children={
