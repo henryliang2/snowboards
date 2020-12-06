@@ -1,11 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { SnowboardContext } from '../App';
-import SnowboarderImage from './../Resources/snowboarder-main.jpg';
+
 
 import './../Styles/Landing.css'
 
 const Landing = () => {
+
+  const [displayStyles, setDisplayStyles] = useState(false);
+  const [displayManufacturers, setDisplayManufacturers] = useState(false);
 
   const listOfManufacturers = [
     'Wired Snowboards',
@@ -15,63 +17,63 @@ const Landing = () => {
     'Trapper Snowboards',
     'Prior Snowboards and Skis'
   ]
+
+  const listOfStyles = [
+    'Freeride',
+    'All-Mountain Freeride',
+    'All-Mountain Freestyle',
+    'Freestyle'
+  ]
   
   const history = useHistory();
-  const { setSnowboards } = useContext(SnowboardContext);
-
-  const [type, setType] = useState('');
-  const [manufacturer, setManufacturer] = useState('');
-
-  const handleSubmit = () => {
-    if (type.length) history.push(`/type/${type}`)
-    if (manufacturer.length) history.push(`/manufacturer/${manufacturer}`)
-  }
 
   return (
     <div className='landing'>
-      <div className='landing__image'><img src={SnowboarderImage} alt='Snowboarder' /></div>
-      <div className='landing__form'>
-        <form 
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSnowboards([]);
-            handleSubmit();
-          }
-        }>
-          <div className='landing__title'>Quality snowboards made in Canada</div>
-          <div className='landing__category'>Browse by Riding Style</div>
-          <div className='landing__select'>
-            <select 
-              value={type}
-              onChange={(e) => { 
-                setType(e.target.value)
-                setManufacturer('');
-              }}
-              >
-              <option value=''>Choose a style</option>
-              <option value='Freestyle'>Freestyle</option>
-              <option value='All-Mountain Freestyle'>All-Mountain Freestyle</option>
-              <option value='All-Mountain Freeride'>All-Mountain Freeride</option>
-              <option value='Freeride'>Freeride</option>
-            </select>
+    
+      <div className='landing__column landing__column--left'>
+        <div className='landing__category'>
+          <div 
+            className='landing__category-title'
+            onClick={ () => { setDisplayStyles(!displayStyles) }}>
+              Browse by Riding Style
           </div>
-          <div className='landing__category'>Browse by Manufacturer</div>
-          <div className='landing__select'>
-          <select 
-              value={manufacturer}
-              onChange={(e) => { 
-                setManufacturer(e.target.value)
-                setType('');
-              }}
-              >
-              <option value=''>Choose a manufacturer</option>
-              {
-                listOfManufacturers.map((mfr) => <option key={mfr} value={mfr}>{mfr}</option>)
+          { displayStyles &&
+            <div className='landing__selection'>
+              { listOfStyles.map(style => (
+                  <div 
+                    className='landing__option'
+                    onClick={() => { history.push(`/type/${style}`) }}
+                    key={style}>
+                      {style}
+                  </div>
+                )) 
               }
-            </select>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div className='landing__column landing__column--right'>
+        <div className='landing__category'>
+          <div 
+            className='landing__category-title'
+            onClick={ () => { setDisplayManufacturers(!displayManufacturers) }}>
+              Browse by Manufacturer
           </div>
-          <input type='submit' value='Search' />
-        </form>
+          { displayManufacturers &&
+            <div className='landing__selection'>
+              { listOfManufacturers.map(mfr => (
+                  <div 
+                    className='landing__option'
+                    onClick={() => { history.push(`/manufacturer/${mfr}`) }}
+                    key={mfr}>
+                      {mfr}
+                  </div>
+                )) 
+              }
+            </div>
+          }
+        </div>
       </div>
     </div>
   );

@@ -5,14 +5,62 @@
   font-size: 1.4rem;
   font-weight: 400;
   color: black;
-  min-height: 80vh;
+  height: 70vh;
+  min-height: 320px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .landing__title {
   font-size: 1.4rem;
   font-weight: 600;
+}
+
+.landing__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  position: relative;
+}
+
+.landing__selection {
+  position: absolute;
+}
+
+.landing__option {
+  background: black;
+  padding: 12px;
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.landing__option:hover {
+  background: white;
+  color: black;
+}
+
+.landing__column--left {
+  background-image: url('./../Resources/bg_left-col.jpg')
+}
+
+.landing__column--right {
+  background-image: url('./../Resources/bg_right-col.jpg');
+  background-position: right;
+}
+
+.landing__category-title {
+  background: black;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.landing__category-title:hover {
+  background: white;
+  color: black;
 }

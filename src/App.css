@@ -60,6 +60,12 @@ main {
 .card__image {
   max-height: 320px;
   object-fit: contain;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card__image:hover {
+  opacity: 0.6
 }
 
 .card__info {

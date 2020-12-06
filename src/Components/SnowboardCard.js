@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './../App.css'
 
 const SnowboardCard = ({ snowboard }) => {
@@ -8,6 +8,7 @@ const SnowboardCard = ({ snowboard }) => {
 
   const cardRef = useRef(null);
   const imageRef = useRef(null);
+  const history = useHistory();
 
   const handleImageLoaded = () => {
     cardRef.current.classList.add('fade-in');
@@ -44,6 +45,7 @@ const SnowboardCard = ({ snowboard }) => {
           src={snowboard.image} 
           alt={snowboard.name}
           onLoad={ handleImageLoaded }
+          onClick={() => { history.push(`/snowboard/${snowboard.name}`) }}
           />
       </div>
     </div>
