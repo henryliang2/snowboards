@@ -51,8 +51,8 @@ const Landing = () => {
   return (
     <React.Fragment>
       <div className='landing__header'>
-        <span>SHOP LOCAL. QUALITY SNOWBOARDS</span><br/>
-        <span>ARE MADE RIGHT HERE AT HOME.</span>
+        <div><span>SHOP LOCAL. QUALITY SNOWBOARDS</span></div>
+        <div><span>ARE MADE RIGHT HERE AT HOME.</span></div>
       </div>
 
       <div className='landing'>
