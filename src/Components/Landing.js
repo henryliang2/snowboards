@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 
@@ -11,8 +11,26 @@ const Landing = () => {
   const [displayManufacturers, setDisplayManufacturers] = useState(false);
 
   useEffect(() => {
-
+    document.removeEventListener('mousedown', handleClick, false);
+    if(displayStyles || displayManufacturers) {
+      document.addEventListener('mousedown', handleClick, false);
+    }
   })
+
+  const handleClick = (e) => {
+    const leftColumn = document.getElementsByClassName('landing__column--left')[0];
+    const rightColumn = document.getElementsByClassName('landing__column--right')[0];
+
+    if(leftColumn === undefined) return;
+
+    if(displayStyles && !leftColumn.contains(e.target)) {
+      setDisplayStyles(false);
+    }
+
+    if(displayManufacturers && !rightColumn.contains(e.target)) {
+      setDisplayManufacturers(false);
+    }
+  }
 
   const listOfManufacturers = [
     'Wired Snowboards',
@@ -38,9 +56,12 @@ const Landing = () => {
       </div>
 
       <div className='landing'>
+
         <div 
           className='landing__column landing__column--left'
-          style={{ opacity: displayManufacturers ? 0.2 : 1 }}>
+          style={{ 
+            opacity: displayManufacturers ? 0.4 : 1 
+          }}>
           <div className='landing__category'>
             <div 
               className='landing__category-title'
@@ -72,7 +93,9 @@ const Landing = () => {
 
         <div 
           className='landing__column landing__column--right'
-          style={{ opacity: displayStyles ? 0.2 : 1 }}>
+          style={{ 
+            opacity: displayStyles ? 0.4 : 1 
+          }}>
           <div className='landing__category'>
             <div 
               className='landing__category-title'

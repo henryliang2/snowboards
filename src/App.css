@@ -19,6 +19,13 @@ a {
   max-width: 1200px;
 }
 
+.layout__loading {
+  margin-top: 80px;
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.2rem;
+}
+
 .header__type {
   display: flex;
   justify-content: center;

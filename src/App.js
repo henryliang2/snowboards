@@ -46,7 +46,13 @@ const App = () => {
 
               <Route exact path="/">
                 { loading
-                  ? <LinearProgress />
+                  ? <React.Fragment>
+                      <LinearProgress color='secondary'/>
+                      <div className='layout__loading'>
+                        Retrieving Snowboards ...
+                      </div>
+                    </React.Fragment>
+ 
                   : <div className='layout layout--100pct'>
                       <Landing />
                     </div> 
