@@ -14,6 +14,11 @@ const Navigation = () => {
             <div className='nav__title'>CANADIAN<br/>SNOWBOARDS</div>
           </div>
         </Link>
+        <div className='nav__db-info'>
+          <p>
+            Note: No API was used for this project. <br/>
+          </p>
+        </div>
       </div>
     </div>
   );

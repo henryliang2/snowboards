@@ -12,6 +12,8 @@
   width: 90%;
   max-width: 1200px;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav__logo {
