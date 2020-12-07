@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
 
@@ -6,8 +6,13 @@ import './../Styles/Landing.css'
 
 const Landing = () => {
 
+  const history = useHistory();
   const [displayStyles, setDisplayStyles] = useState(false);
   const [displayManufacturers, setDisplayManufacturers] = useState(false);
+
+  useEffect(() => {
+
+  })
 
   const listOfManufacturers = [
     'Wired Snowboards',
@@ -24,8 +29,6 @@ const Landing = () => {
     'All-Mountain Freestyle',
     'Freestyle'
   ]
-  
-  const history = useHistory();
 
   return (
     <React.Fragment>
@@ -35,7 +38,9 @@ const Landing = () => {
       </div>
 
       <div className='landing'>
-        <div className='landing__column landing__column--left'>
+        <div 
+          className='landing__column landing__column--left'
+          style={{ opacity: displayManufacturers ? 0.2 : 1 }}>
           <div className='landing__category'>
             <div 
               className='landing__category-title'
@@ -65,7 +70,9 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className='landing__column landing__column--right'>
+        <div 
+          className='landing__column landing__column--right'
+          style={{ opacity: displayStyles ? 0.2 : 1 }}>
           <div className='landing__category'>
             <div 
               className='landing__category-title'

@@ -34,7 +34,7 @@ const ManufacturerHeader = (props, { client }) => {
           onLoad={() => { headerLogoRef.current.classList.add('fade-in') }}
           />
       </div>
-      <div className='header__location'>{`Headquarters: ${location}`}</div>
+      <div className='header__location'>{`Manufactured in ${location}`}</div>
     </div>
   );
 }
