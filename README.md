@@ -7,7 +7,7 @@ See the [Live Project](https://canadiansnowboards.netlify.app) here.
 
 ## Internal API
 
-Canadian Snowboards uses an internal API using GraphQL to access data from the database.
+Canadian Snowboards uses an internal API built with Express and GraphQL that allows for retreival from the database.
 
 The database is [accessible here](https://canadiansnowboards-server.herokuapp.com/graphql) (GraphiQL is enabled).
 
