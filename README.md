@@ -15,7 +15,7 @@ supporting small businesses.
 
 Canadian Snowboards uses an internal API built with Express and GraphQL that allows for retreival from the database.
 
-The database is [accessible here](https://canadiansnowboards-server.herokuapp.com/graphql) (GraphiQL is enabled).
+The API is [accessible here](https://canadiansnowboards-server.herokuapp.com/graphql) (GraphiQL is enabled).
 
 The repository for the API is [located here](https://github.com/henryliang2/snowboards-be).
 
