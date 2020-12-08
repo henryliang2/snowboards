@@ -3,7 +3,13 @@
 This is a project showcasing snowboards manufactured in Canada.
 The project was built using React, GraphQL, and AWS (PostgreSQL).
 
-See the [Live Project](https://canadiansnowboards.netlify.app) here.
+See the [Live Project](https://canadiansnowboards.netlify.app) here.  
+
+The goal of this project for me was to implement my knowledge of
+RDBMS and GraphQL into a full-stack project with. I decided to showcase
+Canadian-manufactured snowboards as I am personally a huge snowboard
+nerd and also a big proponent of buying locally-manufactured products and
+supporting small businesses.
 
 ## Internal API
 
