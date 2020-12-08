@@ -16,9 +16,11 @@ The repository for the API is [located here](https://github.com/henryliang2/snow
 ## Data Storage
 
 No external API was used for this project - all data is stored using Amazon RDS.
-Canadian Snowboards uses PostgreSQL for data storage. See the database schema below:
+Canadian Snowboards uses PostgreSQL for data storage. See the database schema and sample rows below:
 
 ![ER Diagram](public/ERD.png)
+
+![Sample Rows](public/snapshot.png)
 
 ## Technologies
 
