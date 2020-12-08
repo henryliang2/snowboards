@@ -16,7 +16,7 @@ const Navigation = () => {
         </Link>
         <div className='nav__db-info'>
           <p>
-            Note: No API was used for this project. <br/>
+            Note: No external API was used for this project. <br/>
             All data is stored on Amazon RDS.
           </p>
         </div>
