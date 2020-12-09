@@ -36,7 +36,6 @@ const SnowboardShowcase = () => {
         ...data.snowboard,
         name: data.snowboard.name.toUpperCase()
       })
-      console.log(data.snowboard)
     }
   }, [data])
 

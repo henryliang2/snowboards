@@ -19,7 +19,6 @@ const ManufacturerHeader = (props, { client }) => {
 
   useEffect(() => {
     if(data){
-      console.log(data.manufacturer)
       setLogo(data.manufacturer.logo)
       setLocation(data.manufacturer.location)
     }
